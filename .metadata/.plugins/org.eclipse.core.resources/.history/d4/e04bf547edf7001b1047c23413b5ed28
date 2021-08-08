@@ -33,11 +33,8 @@ public class Conta {
 		this.agenciaConta = agenciaConta;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
 	public int getSaldo() {
 		return saldo;
 	}
+
 }

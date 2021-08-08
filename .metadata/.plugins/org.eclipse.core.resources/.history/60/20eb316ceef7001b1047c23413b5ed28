@@ -1,0 +1,72 @@
+package br.com.banco;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public abstract class ContaController {
+
+	public class AlunoController {
+
+		private Scanner tec;
+		private ContaController contaController;
+
+		List<Conta> alunos = new ArrayList<>();
+
+		public ContaController() {
+			contaController = new ContaController();
+			tec = new Scanner(System.in);
+		}
+
+		public int leOpcao() {
+			System.out.println("\n");
+			System.out.print("Informe a opção desejada -> ");
+			return tec.nextInt();
+		}
+
+		public void menuConta() {
+
+			boolean sair = false;
+
+			do {
+				System.out.println("|----------- MENU ALUNOS -----------|");
+				System.out.println("|1 -> Cadastrar Alunos              |");
+				System.out.println("|2 -> Lista de Alunos Cadastrados   |");
+				System.out.println("|3 -> Editar Alunos Cadastrados     |");
+				System.out.println("|4 -> Excluir Alunos Cadastrados    |");
+				System.out.println("|-----------------------------------|");
+
+				int opcao = leOpcao();
+
+				switch (opcao) {
+
+				case 1:
+					System.out.println("\n");
+					alunos.add(cadastrarAluno(cursos));
+					break;
+
+				case 2:
+					listarAlunos(alunos);
+					break;
+
+				case 3:
+					editarAluno(alunos, cursos);
+					break;
+
+				case 4:
+					excluirAluno(alunos);
+					break;
+
+				default:
+					System.out.println("Opção Inválida!!!");
+					break;
+				}
+
+				System.out.print("Deseja retornar ao MENU PRINCIPAL? [S/N] -> ");
+				String resposta = tec.next();
+				sair = resposta.equalsIgnoreCase("n") ? true : false;
+				System.out.println("\n");
+
+			} while (sair);
+		}
+}

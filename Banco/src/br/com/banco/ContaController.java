@@ -1,0 +1,68 @@
+package br.com.banco;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public abstract class ContaController {
+
+	private Scanner tec;
+	private Conta saldoConta;
+
+	List<Conta> alunos = new ArrayList<>();
+
+	public int leOpcao() {
+		System.out.println("\n");
+		System.out.print("Informe a opção desejada -> ");
+		return tec.nextInt();
+	}
+
+	public void menuConta() {
+
+		boolean sair = false;
+
+		do {
+			System.out.println("|----------- MENU CONTA ------------|");
+			System.out.println("|1 -> Sacar                         |");
+			System.out.println("|2 -> Depositar                     |");
+			System.out.println("|3 -> Voltar ao menu principal      |");
+			System.out.println("|-----------------------------------|");
+
+			int opcao = leOpcao();
+
+			switch (opcao) {
+
+			case 1:
+				System.out.println("\n");
+
+				break;
+
+			case 2:
+
+				break;
+
+			case 3:
+
+				break;
+
+			case 4:
+
+				break;
+
+			default:
+				System.out.println("Opção Inválida!!!");
+				break;
+			}
+
+			System.out.print("Deseja retornar ao MENU PRINCIPAL? [S/N] -> ");
+			String resposta = tec.next();
+			sair = resposta.equalsIgnoreCase("n") ? true : false;
+			System.out.println("\n");
+
+		} while (sair);
+	}
+
+	public void depositar() {
+		this.saldoConta = this.saldoConta;
+	}
+}
