@@ -1,0 +1,10 @@
+package br.com.banco;
+
+public class Conta {
+	
+	int numeroConta;
+	int agenciaConta;
+	String cliente;
+	int saldo;
+}
+
