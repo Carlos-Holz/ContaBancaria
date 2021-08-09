@@ -1,10 +1,8 @@
 package br.com.banco;
 
-import java.util.Scanner;
-
 public abstract class ContaPoupanca extends Conta {
 	
-	Scanner tec = new Scanner(System.in);
+	
 	Conta contaPoupanca;
 	
 	public void sacar(double valorSaque) {
@@ -22,9 +20,7 @@ public abstract class ContaPoupanca extends Conta {
 	}
 
 	public void getCliente(String string) {
-		System.out.println("Informe o nome do cliente: ");
-		cliente.getNome();
-		System.out.println("Informe o cpf do cliente: ");
-		cliente.getCpf();
+		// TODO Auto-generated method stub
+		
 	}
 }

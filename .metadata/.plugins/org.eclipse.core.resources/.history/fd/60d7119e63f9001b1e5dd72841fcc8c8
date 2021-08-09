@@ -1,0 +1,48 @@
+package br.com.principal;
+
+import java.util.Scanner;
+
+import br.com.banco.Conta;
+import br.com.banco.ContaCorrente;
+import br.com.banco.ContaPoupanca;
+
+public class ProgramaPrincipal {
+
+	public static void main(String[] args) {
+
+		Scanner tec = new Scanner(System.in);
+		Conta conta;
+		ContaCorrente contaCorrente;
+		ContaPoupanca contaPoupanca;
+
+		contaCorrente = new ContaCorrente() {
+
+			public double sacar() {
+				return 0;
+			}
+		};
+
+		contaPoupanca = new ContaPoupanca() {
+
+			public double sacar() {
+				return 0;
+			}
+		};
+		
+		String resposta = tec.next();
+		System.out.println("Você deseja operar na sua conta corrente ou poupança? ");
+		if (resposta.equalsIgnoreCase("Conta corrente")) {
+			
+			contaPoupanca.deposita(0.10);
+			System.out.println(contaPoupanca.getSaldo());
+			contaPoupanca.sacar(0);
+			System.out.println("Valor após o saque\n" + contaPoupanca.getSaldo());
+			
+		}
+
+		contaCorrente.deposita(100);
+		System.out.println(contaCorrente.getSaldo());
+		contaCorrente.sacar(0);
+		System.out.println("Valor após o saque\n" + contaCorrente.getSaldo());
+	}
+}

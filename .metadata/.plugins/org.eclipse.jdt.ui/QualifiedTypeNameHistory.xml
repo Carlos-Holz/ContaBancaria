@@ -4,15 +4,18 @@
     <fullyQualifiedTypeName name="br.com.senai.ProgramaPrincipal"/>
     <fullyQualifiedTypeName name="br.com.senai.aluno.AlunoController"/>
     <fullyQualifiedTypeName name="br.com.holz.ProgramaPrincipal"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="br.com.senai.curso.Curso"/>
     <fullyQualifiedTypeName name="br.com.senai.curso.CursoController"/>
     <fullyQualifiedTypeName name="java.io.Closeable"/>
     <fullyQualifiedTypeName name="br.com.senai.aluno.Aluno"/>
     <fullyQualifiedTypeName name="br.com.banco.Cliente"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="br.com.banco.ContaController"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="br.com.banco.ContaPoupança"/>
+    <fullyQualifiedTypeName name="br.com.banco.ContaPoupanca"/>
     <fullyQualifiedTypeName name="br.com.banco.Conta"/>
+    <fullyQualifiedTypeName name="br.com.banco.ContaCorrente"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

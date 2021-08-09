@@ -31,8 +31,6 @@ public class ProgramaPrincipal {
 
 		String resposta = tec.next();
 		System.out.println("Você deseja operar na sua conta corrente ou poupança? ");
-		tec.next();
-		
 		if (resposta.equalsIgnoreCase("Conta corrente")) {
 
 			System.out.println("Qual valor deseja depositar na sua conta corrente?");
