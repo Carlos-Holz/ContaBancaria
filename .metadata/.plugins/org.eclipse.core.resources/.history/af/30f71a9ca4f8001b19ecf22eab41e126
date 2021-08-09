@@ -1,0 +1,13 @@
+package br.com.banco;
+
+public class ContaPoupança {
+
+	Conta conta = new Conta() {
+		
+		@Override
+		public double sacar(double quantidade) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+	};
+}

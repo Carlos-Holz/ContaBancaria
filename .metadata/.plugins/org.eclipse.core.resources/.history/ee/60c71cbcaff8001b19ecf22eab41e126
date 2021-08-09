@@ -1,0 +1,21 @@
+package br.com.banco;
+
+public abstract class ContaPoupança extends Conta {
+
+	public ContaPoupança(int numeroConta, int agenciaConta, Cliente cliente) {
+		super(numeroConta, agenciaConta, cliente);
+	}
+
+	private Conta conta;
+
+	public void Conta() {
+
+		conta = new Conta() {
+			
+			public double sacar() {
+				conta.getSaldo();
+				return 0;
+			}
+		};
+	}
+}

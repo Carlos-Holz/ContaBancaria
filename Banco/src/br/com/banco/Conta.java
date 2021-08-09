@@ -1,16 +1,16 @@
 package br.com.banco;
 
-public class Conta {
+public abstract class Conta {
 
 	int numeroConta;
 	int agenciaConta;
 	Cliente cliente;
-	int saldo;
-	
-	public Conta(){
-		
+	double saldo = 0;
+
+	public Conta() {
+
 	}
-	
+
 	public Conta(int numeroConta, int agenciaConta, Cliente cliente) {
 		this.numeroConta = numeroConta;
 		this.agenciaConta = agenciaConta;
@@ -37,7 +37,13 @@ public class Conta {
 		return cliente;
 	}
 
-	public int getSaldo() {
+	public double getSaldo() {
 		return saldo;
+	}
+
+	public abstract double sacar();
+
+	void deposita(double quantidade) {
+		this.saldo += quantidade;
 	}
 }

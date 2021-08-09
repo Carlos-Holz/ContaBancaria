@@ -1,0 +1,43 @@
+package br.com.banco;
+
+public abstract class Conta {
+
+	int numeroConta;
+	int agenciaConta;
+	Cliente cliente;
+	int saldo;
+	
+	public Conta(){
+		
+	}
+	
+	public Conta(int numeroConta, int agenciaConta, Cliente cliente) {
+		this.numeroConta = numeroConta;
+		this.agenciaConta = agenciaConta;
+		this.cliente = cliente;
+	}
+
+	public int getNumeroConta() {
+		return numeroConta;
+	}
+
+	public void setNumeroConta(int numeroConta) {
+		this.numeroConta = numeroConta;
+	}
+
+	public int getAgenciaConta() {
+		return agenciaConta;
+	}
+
+	public void setAgenciaConta(int agenciaConta) {
+		this.agenciaConta = agenciaConta;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public int getSaldo() {
+		return saldo;
+	}
+}

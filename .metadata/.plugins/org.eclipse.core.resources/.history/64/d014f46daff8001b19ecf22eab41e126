@@ -1,0 +1,12 @@
+package br.com.banco;
+import br.com.banco.ContaPoupança;
+
+public class ProgramaPrincipal {
+
+	public static void main(String[] args) {
+		
+		ContaCorrente minhaConta;
+		
+		minhaConta = new ContaCorrente();
+	}
+}

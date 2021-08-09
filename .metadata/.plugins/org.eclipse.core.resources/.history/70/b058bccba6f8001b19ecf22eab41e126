@@ -1,0 +1,17 @@
+package br.com.banco;
+
+public class ContaPoupança extends Conta {
+
+	private Conta conta;
+
+	public void Conta() {
+
+		conta = new Conta() {
+			
+			public double sacar(double quantidade) {
+				conta.getSaldo() = conta.get
+				return 0;
+			}
+		};
+	}
+}

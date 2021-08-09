@@ -1,0 +1,15 @@
+package br.com.banco;
+
+public class ContaPoupança {
+
+	private Conta conta;
+	
+	Conta conta = new Conta() {
+		
+		
+		public double sacar(double quantidade) {
+			
+			return 0;
+		}
+	};
+}

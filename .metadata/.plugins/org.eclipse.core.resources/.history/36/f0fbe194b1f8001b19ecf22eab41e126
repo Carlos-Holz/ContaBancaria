@@ -1,0 +1,15 @@
+package br.com.banco;
+
+public abstract class ContaPoupanca extends Conta {
+	
+	double valorSaque = 0.10;
+	
+	public double sacar() {
+		getSaldo() - valorSaque = this.saldo;
+		return 0;
+	}
+	
+	void deposita(double quantidade) {
+		this.saldo += quantidade;
+	}
+}
