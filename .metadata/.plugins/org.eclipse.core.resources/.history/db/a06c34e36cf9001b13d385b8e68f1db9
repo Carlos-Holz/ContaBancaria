@@ -1,0 +1,70 @@
+package br.com.principal;
+
+import java.util.Scanner;
+
+//import br.com.banco.Conta;
+import br.com.banco.ContaCorrente;
+import br.com.banco.ContaPoupanca;
+
+public class ProgramaPrincipal {
+
+	public static void main(String[] args) {
+
+		Scanner tec = new Scanner(System.in);
+		// Conta conta;
+		ContaCorrente contaCorrente;
+		ContaPoupanca contaPoupanca;
+
+		contaCorrente = new ContaCorrente() {
+
+			public double sacar() {
+				return 0;
+			}
+		};
+
+		contaPoupanca = new ContaPoupanca() {
+
+			public double sacar() {
+				return 0;
+			}
+		};
+		
+		System.out.println("Por favor, informe a sua agência: ");
+		contaCorrente.setAgenciaConta(tec.nextInt());
+
+		System.out.println("Por favor, informe o número da conta: ");
+		contaCorrente.setNumeroConta(tec.nextInt());
+		
+		
+		System.out.print("Você deseja operar na sua conta corrente (1) ou poupança (2)? ");
+		int resposta = tec.nextInt();
+		System.out.println("\n");
+			if (resposta == 1) {
+
+				System.out.print("Deseja depositar algum valor na sua conta corrente? Atualmente ela está zerada!! - depositando: R$");
+				contaCorrente.deposita(tec.nextDouble());
+				System.out.println("\n");
+				System.out.println("Seu saldo após o depósito é de: R$" + contaCorrente.getSaldo());
+				System.out.println("\n");
+				System.out.println("Sua conta está padrozinada para sacar R$0,10 centavos por operação!");
+				contaCorrente.sacar(0.10);
+				System.out.println("\n");
+				System.out.print("Valor após o saque: R$" + contaCorrente.getSaldo());
+
+			} else if (resposta == 2) {
+
+				System.out.print("Deseja depositar algum valor na sua conta poupança? Atualmente ela está zerada!! - depositando: R$");
+				contaPoupanca.deposita(tec.nextDouble());
+				System.out.println("\n");
+				System.out.println("Seu saldo após o depósito é de: R$" + contaPoupanca.getSaldo());
+				System.out.println("\n");
+				System.out.println("Sua conta está padrozinada para sacar R$0,10 centavos por operação!");
+				contaPoupanca.sacar(0.10);
+				System.out.println("\n");
+				System.out.print("Valor após o saque: R$" + contaPoupanca.getSaldo());
+		}
+
+		tec.close();
+
+	}
+}

@@ -29,27 +29,80 @@ public class ProgramaPrincipal {
 			}
 		};
 
-		String resposta = tec.next();
-		System.out.println("Você deseja operar na sua conta corrente ou poupança? ");
-		tec.next();
-		
-		if (resposta.equalsIgnoreCase("Conta corrente")) {
+		System.out.print("Você deseja operar na sua conta corrente (1) ou poupança (2)? ");
+		int resposta = tec.nextInt();
+		System.out.println("\n");
 
-			System.out.println("Qual valor deseja depositar na sua conta corrente?");
-			contaCorrente.deposita(tec.nextDouble());
-			System.out.println("Seu saldo após o depósito é de: R$ " + contaCorrente.getSaldo());
-			System.out.println("Qual valor deseja sacar da sua conta corrente?");
-			contaCorrente.sacar(tec.nextDouble());
-			System.out.println("Valor após o saque\n" + contaCorrente.getSaldo());
+		if (resposta == 1) {
 
-		} else if (resposta.equalsIgnoreCase("Conta poupança")) {
+			System.out.print("Por favor, informe a sua agência: ");
+			contaCorrente.setAgenciaConta(tec.nextInt());
 
-			System.out.println("Qual valor deseja depositar na sua conta poupança?");
-			contaPoupanca.deposita(tec.nextDouble());
-			System.out.println("Seu saldo após o depósito é de: R$ " + contaPoupanca.getSaldo());
-			System.out.println("Qual valor deseja sacar da sua conta poupança?");
-			contaPoupanca.sacar(tec.nextDouble());
-			System.out.println("Valor após o saque: R$ " + contaPoupanca.getSaldo());
+			System.out.print("Por favor, informe o número da conta: ");
+			contaCorrente.setNumeroConta(tec.nextInt());
+			System.out.println("\n");
+			
+			if (contaCorrente.getNumeroConta() <= 0 && contaCorrente.getAgenciaConta() <= 0) {
+				System.out.println("Erro! O número da conta e agência devem ser maior que 0");
+			} else {
+
+				System.out.println("\n");
+				System.out.print(
+						"Deseja depositar algum valor na sua conta corrente? Atualmente ela está zerada!! \nDepositando: R$");
+				contaCorrente.deposita(tec.nextDouble());
+				System.out.println("na conta " + contaCorrente.getNumeroConta() + " agência "
+						+ contaCorrente.getAgenciaConta() + " do cliente " + contaCorrente.cliente());
+				System.out.println("\n");
+				System.out.println("Seu saldo após o depósito é de: R$" + contaCorrente.getSaldo());
+				System.out.println("\n");
+				System.out.print("Deseja sacar algum valor? [S/N] ");
+				String opcao = tec.next();
+				System.out.println("\n");
+				if (opcao.equalsIgnoreCase("s")) {
+					System.out.println("Obs: Nosso banco trabalha com uma taxa de 0,10 centavos por saque efetuado!");
+					System.out.print("Informe o valor que deseja sacar: R$");
+					contaCorrente.sacar(tec.nextDouble());
+					System.out.println("\n");
+					System.out.println("Saldo após saque efetuado: R$" + contaCorrente.getSaldo());
+				} else {
+					System.out.println("Operação finalizada!!");
+				}
+			}
+		} else if (resposta == 2) {
+
+			System.out.print("Por favor, informe a sua agência: ");
+			contaPoupanca.setAgenciaConta(tec.nextInt());
+
+			System.out.print("Por favor, informe o número da conta: ");
+			contaPoupanca.setNumeroConta(tec.nextInt());
+			System.out.println("\n");
+			
+			if (contaPoupanca.getNumeroConta() <= 0 && contaPoupanca.getAgenciaConta() <= 0) {
+				System.out.println("Erro! O número da conta e agência devem ser maior que 0");
+			} else {
+
+				System.out.println("\n");
+				System.out.print(
+						"Deseja depositar algum valor na sua conta poupança? Atualmente ela está zerada!! \nDepositando: R$");
+				contaPoupanca.deposita(tec.nextDouble());
+				System.out.println("na conta " + contaPoupanca.getNumeroConta() + " agência "
+						+ contaPoupanca.getAgenciaConta() + " do cliente " + contaPoupanca.cliente());
+				System.out.println("\n");
+				System.out.println("Seu saldo após o depósito é de: R$" + contaPoupanca.getSaldo());
+				System.out.println("\n");
+				System.out.print("Deseja sacar algum valor? [S/N] ");
+				String opcao = tec.next();
+				System.out.println("\n");
+				if (opcao.equalsIgnoreCase("s")) {
+					System.out.println("Obs: Nosso banco trabalha com uma taxa de 0,10 centavos por saque efetuado!");
+					System.out.print("Informe o valor que deseja sacar: R$");
+					contaPoupanca.sacar(tec.nextDouble());
+					System.out.println("\n");
+					System.out.println("Saldo após saque efetuado: R$" + contaPoupanca.getSaldo());
+				} else {
+					System.out.println("Operação finalizada!!");
+				}
+			}
 		}
 
 		tec.close();

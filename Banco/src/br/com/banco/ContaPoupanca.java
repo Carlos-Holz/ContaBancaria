@@ -8,11 +8,10 @@ public abstract class ContaPoupanca extends Conta {
 	Conta contaPoupanca;
 	
 	public void sacar(double valorSaque) {
-		valorSaque = 0.10;
 		if(this.saldo < valorSaque) {
 			System.out.println("Impossível sacar, sem limite na conta!!");
 		}else {
-		this.saldo = this.saldo - valorSaque;
+		this.saldo = this.saldo - valorSaque - 0.10;
 		return;
 		}
 	}
@@ -20,11 +19,10 @@ public abstract class ContaPoupanca extends Conta {
 	public void deposita(double quantidade) {
 		this.saldo = quantidade;
 	}
-
-	public void getCliente(String string) {
-		System.out.println("Informe o nome do cliente: ");
-		cliente.getNome();
-		System.out.println("Informe o cpf do cliente: ");
-		cliente.getCpf();
+	
+	public String cliente() {
+		cliente.nome = "Carlos";
+		cliente.cpf = "083.415.069-00";
+		return cliente();
 	}
 }

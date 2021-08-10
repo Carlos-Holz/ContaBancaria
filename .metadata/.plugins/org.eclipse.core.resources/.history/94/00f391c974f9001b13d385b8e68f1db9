@@ -1,0 +1,24 @@
+package br.com.banco;
+
+public abstract class ContaCorrente extends Conta {
+
+	Conta contaCorrente;
+	Cliente cliente;
+	
+	public void sacar(double valorSaque) {
+		if(this.saldo < valorSaque) {
+			System.out.println("Impossível sacar, sem limite na conta!!");
+		}else {
+		this.saldo = this.saldo - valorSaque - 0.10;
+		return;
+		}
+	}
+	
+	public void deposita(double quantidade) {
+		this.saldo = quantidade;
+	}
+	
+	public void cliente() {
+		cliente.cpf = "063.795.419-00";
+	}
+}
