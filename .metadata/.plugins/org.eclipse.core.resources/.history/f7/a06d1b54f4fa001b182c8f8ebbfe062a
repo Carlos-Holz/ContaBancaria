@@ -1,0 +1,52 @@
+package br.com.principal;
+
+import br.com.banco.Cliente;
+import br.com.banco.ContaCorrente;
+import br.com.banco.ContaPoupanca;
+
+public class ProgramaPrincipal {
+
+	 public static final String RED = "\033[0;31m";;
+	private static final String ANSI_RESET = "\033[0m";
+	
+	public static void main(String[] args) {
+
+		Cliente cliente = new Cliente("Mac Taylor", "085.125.576-00");
+
+		ContaCorrente contaCorrente = new ContaCorrente(1021, 888, cliente) {
+
+			protected double sacar() {
+				return 0;
+			}
+		};
+		contaCorrente.deposita(5808.0);
+
+		ContaPoupanca contaPoupanca = new ContaPoupanca(10888, 575, cliente) {
+
+			protected double sacar() {
+				return 0;
+			}
+		};
+		contaPoupanca.deposita(1000.0);
+
+		exibirDados(contaCorrente, contaPoupanca);
+
+		System.out.println(RED + "Obs: Todo saque feito em nosso banco, possui uma taxa de R$0,10 centavos por saque!!\n" + ANSI_RESET);
+		System.out.println("Sacando R$1500,00 da Conta Corrente\n");
+		contaCorrente.sacar(1500.0);
+		System.out.println("Sacando R$300,00 da Conta Poupança\n");
+		contaPoupanca.sacar(300.0);
+		exibirDados(contaCorrente, contaPoupanca);
+	}
+
+	private static void exibirDados(ContaCorrente contaCorrente, ContaPoupanca contaPoupanca) {
+		System.out.println("Conta Corrente: \n" + "Nome: " + contaCorrente.getCliente().getNome() + "\n" + "CPF: "
+				+ contaCorrente.getCliente().getCpf() + "\n" + "Número da Conta: " + contaCorrente.getNumeroConta()
+				+ "\n" + "Agência: " + contaCorrente.getAgenciaConta() + "\n" + "Saldo: R$" + contaCorrente.getSaldo()
+				+ "\n" + "");
+		System.out.println("Conta Poupança: \n" + "Nome: " + contaPoupanca.getCliente().getNome() + "\n"
+				+ "CPF: " + contaPoupanca.getCliente().getCpf() + "\n" + "Número da Conta: "
+				+ contaPoupanca.getNumeroConta() + "\n" + "Agência: " + contaPoupanca.getAgenciaConta() + "\n"
+				+ "Saldo: R$" + contaPoupanca.getSaldo() + "\n" + "");
+	}
+}

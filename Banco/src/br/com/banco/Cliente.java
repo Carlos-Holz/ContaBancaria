@@ -2,12 +2,8 @@ package br.com.banco;
 
 public class Cliente {
 
-	String nome;
-	String cpf;
-
-	public Cliente() {
-
-	}
+	private String nome;
+	private String cpf;
 
 	public Cliente(String nome, String cpf) {
 		this.nome = nome;

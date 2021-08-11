@@ -2,19 +2,16 @@ package br.com.banco;
 
 public abstract class Conta {
 
-	int numeroConta;
-	int agenciaConta;
-	Cliente cliente;
-	double saldo = 0;
-
-	public Conta() {
-
-	}
+	private int numeroConta;
+	private int agenciaConta;
+	private Cliente cliente;
+	protected double saldo;
 
 	public Conta(int numeroConta, int agenciaConta, Cliente cliente) {
-		this.numeroConta = numeroConta;
-		this.agenciaConta = agenciaConta;
+		this.setNumeroConta(numeroConta);;
+		this.setAgenciaConta(agenciaConta);;
 		this.cliente = cliente;
+		this.saldo = 0;
 	}
 
 	public int getNumeroConta() {
@@ -22,7 +19,11 @@ public abstract class Conta {
 	}
 
 	public void setNumeroConta(int numeroConta) {
-		this.numeroConta = numeroConta;
+		if (numeroConta <= 0) {
+            System.out.println("Nao pode valor menor igual a 0");
+        } else {
+            this.numeroConta = numeroConta;
+        };
 	}
 
 	public int getAgenciaConta() {
@@ -30,7 +31,11 @@ public abstract class Conta {
 	}
 
 	public void setAgenciaConta(int agenciaConta) {
-		this.agenciaConta = agenciaConta;
+		if (agenciaConta <= 0) {
+            System.out.println("Nao pode valor menor igual a 0");
+        } else {
+            this.agenciaConta = agenciaConta;
+        };
 	}
 
 	public Cliente getCliente() {
@@ -41,9 +46,9 @@ public abstract class Conta {
 		return saldo;
 	}
 
-	public abstract double sacar();
+	protected abstract double sacar();
 
-	void deposita(double quantidade) {
+	protected void deposita(double quantidade) {
 		this.saldo = quantidade;
 	}
 }

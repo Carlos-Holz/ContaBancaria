@@ -1,0 +1,30 @@
+package br.com.banco;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.print.attribute.Attribute;
+
+public class Formatacao {
+
+	public static class AnsiFormat {
+
+	    private final ArrayList<Attribute> _attributes = new ArrayList<>(2);
+
+	    public AnsiFormat(Attribute... attributes) {
+	        _attributes.addAll(Arrays.asList(attributes));
+	    }
+
+	    public String format(String text) {
+	        return AnsiFormat.colorize(text, this.toArray());
+	    }
+
+	    private static String colorize(String text, Attribute[] array) {
+			return null;
+		}
+
+		protected Attribute[] toArray() {
+	        return _attributes.toArray(new Attribute[0]);
+	    }
+	}
+}

@@ -1,111 +1,53 @@
 package br.com.principal;
 
-import java.util.Scanner;
-
-//import br.com.banco.Conta;
+import br.com.banco.Cliente;
 import br.com.banco.ContaCorrente;
 import br.com.banco.ContaPoupanca;
 
-public class ProgramaPrincipal {
+public class ProgramaPrincipal{
 
 	public static void main(String[] args) {
 
-		Scanner tec = new Scanner(System.in);
-		// Conta conta;
-		ContaCorrente contaCorrente;
-		ContaPoupanca contaPoupanca;
+		Cliente cliente = new Cliente("Mac Taylor", "085.125.576-00");
 
-		contaCorrente = new ContaCorrente() {
+		ContaCorrente contaCorrente = new ContaCorrente(1021, 888, cliente) {
 
-			public double sacar() {
+			protected double sacar() {
 				return 0;
 			}
 		};
+		contaCorrente.deposita(5808.0);
 
-		contaPoupanca = new ContaPoupanca() {
+		ContaPoupanca contaPoupanca = new ContaPoupanca(1088, 575, cliente) {
 
-			public double sacar() {
+			protected double sacar() {
 				return 0;
 			}
 		};
+		contaPoupanca.deposita(300.0);
 
-		System.out.print("Você deseja operar na sua conta corrente (1) ou poupança (2)? ");
-		int resposta = tec.nextInt();
-		System.out.println("\n");
+		exibirDados(contaCorrente, contaPoupanca);
 
-		if (resposta == 1) {
+		System.err.println("Obs: Todo saque feito em nosso banco, possui uma taxa de R$0,10 centavos por saque!!\n");
+		System.out.println("Sacando R$1500,00 da Conta Corrente\n");
+		contaCorrente.sacar(1500.0);
+		System.out.println("Sacando R$300,00 da Conta Poupança\n");
+		contaPoupanca.sacar(150.0);
+		exibirDados(contaCorrente, contaPoupanca);
+	}
 
-			System.out.print("Por favor, informe a sua agência: ");
-			contaCorrente.setAgenciaConta(tec.nextInt());
-
-			System.out.print("Por favor, informe o número da conta: ");
-			contaCorrente.setNumeroConta(tec.nextInt());
-			System.out.println("\n");
-			
-			if (contaCorrente.getNumeroConta() <= 0 && contaCorrente.getAgenciaConta() <= 0) {
-				System.out.println("Erro! O número da conta e agência devem ser maior que 0");
-			} else {
-
-				System.out.println("\n");
-				System.out.print(
-						"Deseja depositar algum valor na sua conta corrente? Atualmente ela está zerada!! \nDepositando: R$");
-				contaCorrente.deposita(tec.nextDouble());
-				System.out.println("na conta " + contaCorrente.getNumeroConta() + " agência "
-						+ contaCorrente.getAgenciaConta() + " do cliente " + contaCorrente.cliente());
-				System.out.println("\n");
-				System.out.println("Seu saldo após o depósito é de: R$" + contaCorrente.getSaldo());
-				System.out.println("\n");
-				System.out.print("Deseja sacar algum valor? [S/N] ");
-				String opcao = tec.next();
-				System.out.println("\n");
-				if (opcao.equalsIgnoreCase("s")) {
-					System.out.println("Obs: Nosso banco trabalha com uma taxa de 0,10 centavos por saque efetuado!");
-					System.out.print("Informe o valor que deseja sacar: R$");
-					contaCorrente.sacar(tec.nextDouble());
-					System.out.println("\n");
-					System.out.println("Saldo após saque efetuado: R$" + contaCorrente.getSaldo());
-				} else {
-					System.out.println("Operação finalizada!!");
-				}
-			}
-		} else if (resposta == 2) {
-
-			System.out.print("Por favor, informe a sua agência: ");
-			contaPoupanca.setAgenciaConta(tec.nextInt());
-
-			System.out.print("Por favor, informe o número da conta: ");
-			contaPoupanca.setNumeroConta(tec.nextInt());
-			System.out.println("\n");
-			
-			if (contaPoupanca.getNumeroConta() <= 0 && contaPoupanca.getAgenciaConta() <= 0) {
-				System.out.println("Erro! O número da conta e agência devem ser maior que 0");
-			} else {
-
-				System.out.println("\n");
-				System.out.print(
-						"Deseja depositar algum valor na sua conta poupança? Atualmente ela está zerada!! \nDepositando: R$");
-				contaPoupanca.deposita(tec.nextDouble());
-				System.out.println("na conta " + contaPoupanca.getNumeroConta() + " agência "
-						+ contaPoupanca.getAgenciaConta() + " do cliente " + contaPoupanca.cliente());
-				System.out.println("\n");
-				System.out.println("Seu saldo após o depósito é de: R$" + contaPoupanca.getSaldo());
-				System.out.println("\n");
-				System.out.print("Deseja sacar algum valor? [S/N] ");
-				String opcao = tec.next();
-				System.out.println("\n");
-				if (opcao.equalsIgnoreCase("s")) {
-					System.out.println("Obs: Nosso banco trabalha com uma taxa de 0,10 centavos por saque efetuado!");
-					System.out.print("Informe o valor que deseja sacar: R$");
-					contaPoupanca.sacar(tec.nextDouble());
-					System.out.println("\n");
-					System.out.println("Saldo após saque efetuado: R$" + contaPoupanca.getSaldo());
-				} else {
-					System.out.println("Operação finalizada!!");
-				}
-			}
-		}
-
-		tec.close();
-
+	private static void exibirDados(ContaCorrente contaCorrente, ContaPoupanca contaPoupanca) {
+		System.out.println("| ---- Conta Corrente ----|\n" + 
+						   "|Nome: " + contaCorrente.getCliente().getNome() + 	 "         |\n" +
+						   "|CPF: "+ contaCorrente.getCliente().getCpf() + 	 	 "      |\n" + 
+						   "|Número da Conta: " + contaCorrente.getNumeroConta()+"    |\n" + 
+						   "|Agência: " + contaCorrente.getAgenciaConta() +  	 "             |\n" + 
+						   "|Saldo: R$" + contaCorrente.getSaldo()+ 			 "          |\n" + "---------------------------");
+		System.out.println("| ---- Conta Poupança ----|\n" + 
+				   "|Nome: " + contaPoupanca.getCliente().getNome() + 	 "         |\n" +
+				   "|CPF: "+ contaPoupanca.getCliente().getCpf() + 	 	 "      |\n" + 
+				   "|Número da Conta: " + contaPoupanca.getNumeroConta()+"    |\n" + 
+				   "|Agência: " + contaPoupanca.getAgenciaConta() +  	 "             |\n" + 
+				   "|Saldo: R$" + contaPoupanca.getSaldo()+ 			 "           |\n" + "---------------------------");
 	}
 }
