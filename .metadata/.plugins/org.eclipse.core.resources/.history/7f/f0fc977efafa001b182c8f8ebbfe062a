@@ -4,19 +4,18 @@ import br.com.banco.Cliente;
 import br.com.banco.ContaCorrente;
 import br.com.banco.ContaPoupanca;
 
-public class ProgramaPrincipal {
+public class ProgramaPrincipal{
 
 	public static void main(String[] args) {
 
 		Cliente cliente = new Cliente("Mac Taylor", "085.125.576-00");
 
-		ContaCorrente contaCorrente = new ContaCorrente(1021, 888, cliente) {
+		ContaCorrente contaCorrente = new ContaCorrente(0, 888, cliente) {
 
 			protected double sacar() {
 				return 0;
 			}
 		};
-		
 		contaCorrente.deposita(5808.0);
 
 		ContaPoupanca contaPoupanca = new ContaPoupanca(1088, 575, cliente) {
@@ -26,24 +25,14 @@ public class ProgramaPrincipal {
 			}
 		};
 		contaPoupanca.deposita(300.0);
-		
-		if (contaCorrente.getNumeroConta() <= 0 || contaCorrente.getAgenciaConta() <= 0) {
-            System.out.println("O número da conta e agência de sua conta corrente não podem ser menór ou igual a 0!!");
-            
-            System.exit(0);
-        }else if (contaPoupanca.getNumeroConta() <= 0 || contaPoupanca.getAgenciaConta() <= 0){
-        	System.out.println("O número da conta e agência de sua conta poupança não podem ser menór ou igual a 0!!");
-        	
-        	System.exit(0);
-        }
 
 		exibirDados(contaCorrente, contaPoupanca);
 
+		System.err.println("Obs: Todo saque feito em nosso banco, possui uma taxa de R$0,10 centavos por saque!!\n");
 		System.out.println("Sacando R$1500,00 da Conta Corrente\n");
 		contaCorrente.sacar(1500.0);
 		System.out.println("Sacando R$300,00 da Conta Poupança\n");
 		contaPoupanca.sacar(150.0);
-		System.err.println("Obs: Todo saque feito em nosso banco, possui uma taxa de R$0,10 centavos por saque!!\n");
 		exibirDados(contaCorrente, contaPoupanca);
 	}
 

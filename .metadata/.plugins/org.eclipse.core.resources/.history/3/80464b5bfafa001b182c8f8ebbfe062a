@@ -19,7 +19,11 @@ public abstract class Conta {
 	}
 
 	public void setNumeroConta(int numeroConta) {
+		if (numeroConta <= 0) {
+            System.out.println("Nao pode valor menor igual a 0");
+        } else {
             this.numeroConta = numeroConta;
+        };
 	}
 
 	public int getAgenciaConta() {
@@ -27,7 +31,11 @@ public abstract class Conta {
 	}
 
 	public void setAgenciaConta(int agenciaConta) {
+		if (agenciaConta <= 0) {
+            System.out.println("Nao pode valor menor igual a 0");
+        } else {
             this.agenciaConta = agenciaConta;
+        };
 	}
 
 	public Cliente getCliente() {

@@ -39,6 +39,7 @@ public class ProgramaPrincipal {
 
 		exibirDados(contaCorrente, contaPoupanca);
 
+		
 		System.out.println("Sacando R$1500,00 da Conta Corrente\n");
 		contaCorrente.sacar(1500.0);
 		System.out.println("Sacando R$300,00 da Conta Poupança\n");

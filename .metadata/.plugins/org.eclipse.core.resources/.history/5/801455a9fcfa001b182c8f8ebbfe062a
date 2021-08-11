@@ -39,11 +39,11 @@ public class ProgramaPrincipal {
 
 		exibirDados(contaCorrente, contaPoupanca);
 
+		System.err.println("Obs: Todo saque feito em nosso banco, possui uma taxa de R$0,10 centavos por saque!!\n");
 		System.out.println("Sacando R$1500,00 da Conta Corrente\n");
 		contaCorrente.sacar(1500.0);
 		System.out.println("Sacando R$300,00 da Conta Poupança\n");
 		contaPoupanca.sacar(150.0);
-		System.err.println("Obs: Todo saque feito em nosso banco, possui uma taxa de R$0,10 centavos por saque!!\n");
 		exibirDados(contaCorrente, contaPoupanca);
 	}
 
